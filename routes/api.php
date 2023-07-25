@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/users', [UserController::class, 'index']);
 Route::group([
     'prefix' => 'auth'
 ], function () {
@@ -47,7 +47,7 @@ Route::group([
     'prefix' => 'users'
 ], function () {
     Route::post('/', [UserController::class, 'store'])->middleware(['role:' . RoleConstant::SUPER_ADMIN]);
-    Route::get('/', [UserController::class, 'index']);
+    //Route::get('/', [UserController::class, 'index']);
     Route::get('/{user}', [UserController::class, 'show'])->middleware(['role:' . RoleConstant::SUPER_ADMIN]);
     Route::put('/{user}', [UserController::class, 'update'])->middleware(['role:' . RoleConstant::SUPER_ADMIN]);
 });
