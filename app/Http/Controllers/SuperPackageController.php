@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\SuperPackageResource;
-use App\Models\Cargo;
+use App\Models\Expedition;
 use App\Models\Package;
 use App\Models\SuperPackage;
 use App\Services\IdGenerator;
@@ -30,7 +30,7 @@ class SuperPackageController extends Controller
         ])->validate();
 
         try {
-            $cargo = Cargo::where('is_closed', false)->first();
+            $cargo = Expedition::where('is_closed', false)->first();
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 500);
         }

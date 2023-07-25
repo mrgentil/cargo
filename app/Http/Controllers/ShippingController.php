@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ShippingResource;
-use App\Models\Cargo;
+use App\Models\Expedition;
 use App\Models\Customer;
 use App\Models\Shipping;
 use App\Services\IdGenerator;
@@ -34,7 +34,7 @@ class ShippingController extends Controller
 
 
         try {
-            $cargo = Cargo::where('is_closed', false)->first();
+            $cargo = Expedition::where('is_closed', false)->first();
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 500);
         }

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\CargoType;
+use App\Models\ExpeditionType;
 use Illuminate\Database\Seeder;
 
-class CargoTypeSeeder extends Seeder
+class ExpeditionTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,12 @@ class CargoTypeSeeder extends Seeder
      */
     public function run()
     {
-        CargoType::insert([
+        ExpeditionType::insert([
             [
                 'name' => 'Cargo',
             ],
             [
-                'name' => 'Business class',
+                'name' => 'Business',
             ]
         ]);
     }

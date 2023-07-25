@@ -18,7 +18,7 @@ class SuperPackage extends Model
 
     public function cargo()
     {
-        return $this->belongsTo(Cargo::class);
+        return $this->belongsTo(Expedition::class);
     }
 
     public function owner()

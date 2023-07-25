@@ -46,7 +46,7 @@ class Shipping extends Model
 
     public function Cargo()
     {
-        return $this->belongsTo(Cargo::class);
+        return $this->belongsTo(Expedition::class);
     }
 
     public function packages()

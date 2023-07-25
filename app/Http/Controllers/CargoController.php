@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cargo;
+use App\Models\Expedition;
 use App\Services\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,8 +11,8 @@ class CargoController extends Controller
 {
     public function index()
     {
-        $superPackages = Cargo::paginate(15);
-        return Cargo::collection($superPackages);
+        $superPackages = Expedition::paginate(15);
+        return Expedition::collection($superPackages);
     }
 
     public function store(Request $request)
@@ -25,7 +25,7 @@ class CargoController extends Controller
         ])->validate();
 
         try {
-            Cargo::create([
+            Expedition::create([
                 'start_date' => $data['start_date'],
                 'end_date' => $data['end_date'],
                 'tarif' => $data['tarif'],

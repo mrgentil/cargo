@@ -34,7 +34,7 @@ class CreateShippingsTable extends Migration
             $table->unsignedBigInteger("user_id")->index();
             $table->unsignedBigInteger("sending_town_id")->index();
             $table->unsignedBigInteger("destination_town_id")->index();
-            $table->unsignedBigInteger("cargo_id")->index();
+            $table->unsignedBigInteger("expedition_id")->index();
             $table->timestamps();
             $table->softDeletes();
 
@@ -49,9 +49,9 @@ class CreateShippingsTable extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreign("cargo_id")
+            $table->foreign("expedition_id")
                 ->references("id")
-                ->on("cargos")
+                ->on("expeditions")
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
         });

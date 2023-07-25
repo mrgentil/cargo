@@ -29,7 +29,7 @@ class ShippingResource extends JsonResource
             'secret_code' => $this->secret_code,
             'code' => $this->code,
             'packages' => PackageResource::collection($this->packages),
-            'Cargo' => CargoResource::make($this->cargo)
+            'Expedition' => CargoResource::make($this->cargo)
         ];
     }
 }

@@ -16,15 +16,16 @@ class CreateSuperPackagesTable extends Migration
         Schema::create('super_packages', function (Blueprint $table) {
             $table->id();
             $table->float('max_weight');
-            $table->unsignedBigInteger("cargo_id")->index();
+            $table->unsignedBigInteger("expedition_id")->index();
             $table->unsignedBigInteger("user_id")->index();
             $table->timestamps();
 
-            $table->foreign("cargo_id")
+            $table->foreign("expedition_id")
                 ->references("id")
-                ->on("cargos")
+                ->on("expeditions")
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
             $table->foreign("user_id")
                 ->references("id")
                 ->on("users")
