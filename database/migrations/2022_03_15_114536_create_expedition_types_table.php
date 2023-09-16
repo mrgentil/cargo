@@ -14,8 +14,10 @@ class CreateExpeditionTypesTable extends Migration
     public function up()
     {
         Schema::create('expedition_types', function (Blueprint $table) {
-            $table->string("name")->unique();
             $table->id();
+            $table->string("name")->unique();
+            $table->float('prixKilo');
+            $table->float('kiloMax');
             $table->timestamps();
         });
     }

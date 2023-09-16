@@ -20,11 +20,12 @@ class CreateColisTable extends Migration
             $table->date("date");
             $table->string('expediteur');
             $table->string('destinataire');
+            $table->string('phone');
             $table->float('kilo');
-            $table->integer('montant');
-            $table->integer('montantPaye');
-            $table->integer('montantAPayer');
-            $table->enum('mode_paiement', ['Carte Bancaire', 'Cash', 'E-Money']);
+            $table->float('montant');
+            $table->float('montantPaye');
+            $table->float('montantAPayer');
+            $table->enum('mode_paiement', ['Cash', 'Mpesa', 'Orange Money','Airtel Money ']);
             $table->enum('type_colis', ['Gros', 'Petit']);
 
             $table->unsignedBigInteger("agence_id")->index();

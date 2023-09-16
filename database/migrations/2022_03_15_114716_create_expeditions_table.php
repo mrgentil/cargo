@@ -20,7 +20,6 @@ class CreateExpeditionsTable extends Migration
 
     $table->date('start_date');
     $table->date("end_date");
-    $table->float('tarif');
     $table->float('frette');
     $table->float('douane');
     $table->float('totalKilo');
@@ -29,21 +28,13 @@ class CreateExpeditionsTable extends Migration
     $table->boolean('is_closed')->default(false);
 
     $table->unsignedBigInteger("expedition_type_id")->index();
-    $table->unsignedBigInteger("coli_id")->index();
-
 
     $table->foreign("expedition_type_id")
         ->references("id")
         ->on("expedition_types")
         ->cascadeOnDelete()
         ->cascadeOnUpdate();
-
-    $table->foreign("coli_id")
-        ->references("id")
-        ->on("colis")
-        ->cascadeOnDelete()
-        ->cascadeOnUpdate();
-
+    $table->timestamps();
 });
     }
 
